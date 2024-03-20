@@ -1,0 +1,50 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div  align="center" class="col">
+
+      <h1>Welcome to Mahitha's Travel Tourism and Management</h1>
+        <form method="post" action="{% url 'weatherlogic' %}">
+            {%csrf_token %}
+            <h5>
+                <label>Enter a City Name :</label>
+                <input type="text" name="place">
+                <br><br>
+                <button type="submit" class="btn btn-success btn-lg">Check current time of the location</button>
+            </h5>
+        </form>
+      <br><br>
+
+        <br><br><br><br><br><br>
+    </div>
+      <div  align="center" class="col">
+        <h1>Top Vacation Destinations</h1>
+          <br><br>
+          <h1>
+              {% if error_message %}
+              <p> {{ error_message}}</p>
+              {% else %}
+              <p>CITY:{{ city }}</p>
+              <p>Temperature:{{ temperature1 }} &#8451;</p>
+              <p>Humidity:{{ humidity }}%</p>
+              {% endif %}
+          </h1>
+      </div>
+  </div>
+</div>
+</div>
+
+<br><br><br>
+<center>
+
+
+    </div>
+  </div>
+</div>
+    </center>
+<br><br><br><br><br><br>
+{% endblock %}
+</html>
